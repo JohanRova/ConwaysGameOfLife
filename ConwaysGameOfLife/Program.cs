@@ -137,240 +137,167 @@ namespace ConwaysGameOfLife
             if (i == 0 && j == 0)
             {
                 //for top left corner
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j + 1] == " ☒ ")
-                {
-                    //bottom right
-                    adjecentScore++;
-                }
+                adjecentScore = CheckRight(i, j, adjecentScore);
+                adjecentScore = CheckBottom(i, j, adjecentScore);
+                adjecentScore = CheckBottomRight(i, j, adjecentScore);
             }
             else if (i == 0 && j == (ConwayGrid.GetLength(1) - 1))
             {
                 //For top right corner
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j - 1] == " ☒ ")
-                {
-                    //bottom left
-                    adjecentScore++;
-                }
+                adjecentScore = CheckLeft(i, j, adjecentScore);
+                adjecentScore = CheckBottom(i, j, adjecentScore);
+                adjecentScore = CheckBottomLeft(i, j, adjecentScore);
             }
             else if (i == ConwayGrid.GetLength(0) - 1 && j == ConwayGrid.GetLength(1) - 1)
             {
                 //for the bottom right corner
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //above
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j - 1] == " ☒ ")
-                {
-                    //top left
-                    adjecentScore++;
-                }
+                adjecentScore = CheckLeft(i, j, adjecentScore);
+                adjecentScore = CheckAbove(i, j, adjecentScore);
+                adjecentScore = CheckTopLeft(i, j, adjecentScore);
             }
             else if (i == ConwayGrid.GetLength(0) - 1 && j == 0)
             {
                 //for the bottom left
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //top
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j + 1] == " ☒ ")
-                {
-                    //top right
-                    adjecentScore++;
-                }
+                adjecentScore = CheckRight(i, j, adjecentScore);
+                adjecentScore = CheckAbove(i, j, adjecentScore);
+                adjecentScore = CheckTopRight(i, j, adjecentScore);
             }
             else if (j == 0)
             {
                 //left side
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //above
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j + 1] == " ☒ ")
-                {
-                    //top right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j + 1] == " ☒ ")
-                {
-                    //bottom right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
+                adjecentScore = CheckAbove(i, j, adjecentScore);
+                adjecentScore = CheckTopRight(i, j, adjecentScore);
+                adjecentScore = CheckRight(i, j, adjecentScore);
+                adjecentScore = CheckBottomRight(i, j, adjecentScore);
+                adjecentScore = CheckBottom(i, j, adjecentScore);
             }
             else if (i == 0)
             {
                 //top side
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j + 1] == " ☒ ")
-                {
-                    //bottom right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j - 1] == " ☒ ")
-                {
-                    //bottom left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-
+                adjecentScore = CheckRight(i, j, adjecentScore);
+                adjecentScore = CheckBottomRight(i, j, adjecentScore);
+                adjecentScore = CheckBottom(i, j, adjecentScore);
+                adjecentScore = CheckBottomLeft(i, j, adjecentScore);
+                adjecentScore = CheckLeft(i, j, adjecentScore);
             }
             else if (j == ConwayGrid.GetLength(1) - 1)
             {
                 //right side
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j - 1] == " ☒ ")
-                {
-                    //bottom left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j - 1] == " ☒ ")
-                {
-                    //top left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //above
-                    adjecentScore++;
-                }
+                adjecentScore = CheckBottom(i,j, adjecentScore);
+                adjecentScore = CheckBottomLeft(i, j, adjecentScore);
+                adjecentScore = CheckLeft(i,j, adjecentScore);
+                adjecentScore = CheckTopLeft(i, j, adjecentScore);
+                adjecentScore = CheckAbove(i, j, adjecentScore);
             }
             else if (i == ConwayGrid.GetLength(0) - 1)
             {
                 //bottom side
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j - 1] == " ☒ ")
-                {
-                    //top left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //above
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j + 1] == " ☒ ")
-                {
-                    //top right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
+                adjecentScore = CheckLeft(i, j, adjecentScore);
+                adjecentScore = CheckTopLeft(i, j, adjecentScore);
+                adjecentScore = CheckAbove(i, j, adjecentScore);
+                adjecentScore = CheckTopRight(i, j, adjecentScore); 
+                adjecentScore = CheckRight(i, j, adjecentScore);
             }
             else
             {
-                if (ConwayGrid[i - 1, j] == " ☒ ")
-                {
-                    //above
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j + 1] == " ☒ ")
-                {
-                    //top right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j + 1] == " ☒ ")
-                {
-                    //right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j + 1] == " ☒ ")
-                {
-                    //bottom right
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j] == " ☒ ")
-                {
-                    //bottom
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i + 1, j - 1] == " ☒ ")
-                {
-                    //bottom left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i, j - 1] == " ☒ ")
-                {
-                    //left
-                    adjecentScore++;
-                }
-                if (ConwayGrid[i - 1, j - 1] == " ☒ ")
-                {
-                    //top left
-                    adjecentScore++;
-                }
+                adjecentScore = CheckAbove(i,j, adjecentScore);
+                adjecentScore = CheckTopRight(i,j,adjecentScore);
+                adjecentScore = CheckRight(i, j, adjecentScore);
+                adjecentScore = CheckBottomRight(i, j, adjecentScore);
+                adjecentScore = CheckBottom(i, j, adjecentScore);
+                adjecentScore = CheckBottomLeft(i, j, adjecentScore);
+                adjecentScore = CheckLeft(i, j, adjecentScore);
+                adjecentScore = CheckTopLeft(i, j, adjecentScore);
             }
                 return adjecentScore;
+        }
+
+        private static int CheckTopRight(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i - 1, j + 1] == " ☒ ")
+            {
+                //top right
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckTopLeft(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i - 1, j - 1] == " ☒ ")
+            {
+                //top left
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckAbove(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i - 1, j] == " ☒ ")
+            {
+                //above
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckBottomLeft(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i + 1, j - 1] == " ☒ ")
+            {
+                //bottom left
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckLeft(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i, j - 1] == " ☒ ")
+            {
+                //left
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckBottomRight(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i + 1, j + 1] == " ☒ ")
+            {
+                //bottom right
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckBottom(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i + 1, j] == " ☒ ")
+            {
+                //bottom
+                adjecentScore++;
+            }
+
+            return adjecentScore;
+        }
+
+        private static int CheckRight(int i, int j, int adjecentScore)
+        {
+            if (ConwayGrid[i, j + 1] == " ☒ ")
+            {
+                //right
+                adjecentScore++;
+            }
+
+            return adjecentScore;
         }
     }
 }
